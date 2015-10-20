@@ -13,6 +13,10 @@ h1, .h1 {
 	width: 480px;
 }
 
+.panel-skill {
+	width: calc( 33.33% - 40px);
+}
+
 footer-section .social li {
 	width: 25%;
 }

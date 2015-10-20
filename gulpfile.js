@@ -9,8 +9,8 @@ var gulp            = require('gulp'),
     gutil           = require('gulp-util');
 
 var args       = minimist(process.argv.slice(2));
-var remoteHost = 'remotehost.com';
-var remotePath = '/public_html/test/';
+var remoteHost = 'sonnywebdesign.com';
+var remotePath = '/public_html/sonnyportfolio/';
 
 
 // optimize images
@@ -177,8 +177,7 @@ gulp.task('usemin', function() {
       libs: [$.uglify()],
       nonangularlibs: [$.uglify()],
       angularlibs: [$.uglify()],
-      appcomponents: [$.uglify()],
-      mainapp: [$.uglify()]
+      appcomponents: [$.uglify()]
     }))
     .pipe(gulp.dest('./_build/'));
 });
@@ -254,9 +253,10 @@ gulp.task('deploy', function(callback) {
     'clean:build',
     'sass:build',
     'images',
-    // 'templates',
+    'templates',
     'usemin',
     'fonts',
+    'build:size',
     'send',
     callback);
 });

@@ -5,7 +5,7 @@ GENERAL STYLES
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	background-color: #FAFAFA;
+	background-color: #2E2F31;
 	font-family: $font;
 	font-size: 100%;
 	line-height: 1.5;
@@ -27,12 +27,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 h1, .h1 {
 	font-size: 24px;
 	line-height: 48px;
+	color: $color-primary-0;
 }
 
 h2, .h2 {
 	font-size: 1.75em;
 	line-height: 1.4em;
 	margin-bottom: 0.375em;
+	color: $color-secondary-2-3;
 }
 
 h3, .h3 {
@@ -49,7 +51,7 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $white;
+	background-color: $dark;
 }
 
 #inner-header {
@@ -59,7 +61,7 @@ HEADER STYLES
 
 	a {
 		font-size: $small;
-		color: $black;
+		color: $color-secondary-2-0;
 	}
 
 	ul {
@@ -162,4 +164,13 @@ CONTAINER
 
 .container {
 	margin: 0 auto;
+}
+
+.container.main {
+	min-height: 600px;
+	color: $color-primary-0;
+
+	a {
+		color: $color-secondary-2-0;
+	}
 }

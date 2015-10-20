@@ -3,11 +3,13 @@
 <section class="panel-container" ng-controller="WorkController as workCtrl">
 
       <div class="panel panel-work" ng-repeat="work in workCtrl.works">
+        <span class="from">From: {{work.from}}</span>
+        <span class="to">To: {{work.to}}</span>
         <div class="panel-heading">{{work.role}}</div>
         <div class="panel-body">{{work.title}}
           <div class="more" ng-show="work.readmore">
             <p>{{work.description}}</p>
-            <ul>
+            <ul class="skills">
               <li ng-repeat="(skill, pos) in work.skills">{{skill}}</li>
             </ul>
           </div>

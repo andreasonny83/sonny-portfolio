@@ -63,7 +63,7 @@
         redirectTo: '/'
       });
 
-    $httpProvider.interceptors.push('authInterceptor');
+    // $httpProvider.interceptors.push('authInterceptor');
 
   }
 

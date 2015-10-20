@@ -1,0 +1,48 @@
+#contact_form {
+  width: 100%;
+  text-align: left;
+}
+
+.alert {
+  color: rgb(34, 34, 34);
+  padding: 6px 40px;
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  font-size: 18px;
+  left: 25%;
+  height: 30px;
+  right: 25%;
+  margin-top: -15px;
+  line-height: 30px;
+  animation: alert 5s;
+  animation-fill-mode: forwards;
+
+  &.alert-danger {
+    background-color: rgb(191, 91, 91);
+  }
+  &.alert-success {
+    background-color: $color-secondary-1-1;
+  }
+}
+
+.alert.ng-hide {
+  display: none;
+}
+
+@keyframes alert {
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

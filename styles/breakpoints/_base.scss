@@ -1,0 +1,165 @@
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	background-color: #FAFAFA;
+	font-family: $font;
+	font-size: 100%;
+	line-height: 1.5;
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	text-rendering: optimizelegibility;
+	font-weight: 500;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+h1, .h1 {
+	font-size: 24px;
+	line-height: 48px;
+}
+
+h2, .h2 {
+	font-size: 1.75em;
+	line-height: 1.4em;
+	margin-bottom: 0.375em;
+}
+
+h3, .h3 {
+	font-size: 1.75rem;
+}
+
+h4, .h4 {
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+	background-color: $white;
+}
+
+#inner-header {
+	width: 100%;
+	padding: 0;
+	text-align: center;
+
+	a {
+		font-size: $small;
+		color: $black;
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		display: inline-block;
+		margin-right: 50px;
+		line-height: 50px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.main-nav {
+	border-bottom: 0;
+	margin: 0;
+	display: none;
+
+	li {
+
+		a {
+			display: block;
+			color: $white;
+			text-decoration: none;
+			padding: 0.75em;
+		}
+	}
+}
+
+
+/*********************
+RESPONSIVE NAV
+*********************/
+
+#inner-header .hamburger {
+	font-size: 26px;
+	line-height: 50px;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+.responsive-wrapper {
+	display: none;
+
+	ul {
+		background-color: $dark;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		li:hover {
+			background-color: $color-primary-4;
+		}
+	}
+
+	a {
+		display: block;
+		width: 100%;
+		font-size: 21px;
+		line-height: 60px;
+		text-decoration: none;
+		text-align: center;
+		font-family: $font-nerd;
+		color: $color-secondary-2-3;
+	}
+}
+
+/*********************
+SLIDER
+*********************/
+
+.slider {
+	margin-bottom: 30px;
+}
+
+.image-slider {
+	max-height: 400px;
+
+	img {
+		width: 100%;
+	}
+}
+
+/*********************
+CONTAINER
+*********************/
+
+.container {
+	margin: 0 auto;
+}

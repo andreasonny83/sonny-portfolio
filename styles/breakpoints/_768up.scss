@@ -1,0 +1,95 @@
+/******************************************************************
+
+768px and up
+
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	font-family: $font;
+}
+
+h1, .h1 {
+	font-size: 48px;
+	line-height: 64px;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.container {
+	width: 760px;
+}
+
+.panel {
+	width: calc( 50% - 40px);
+}
+
+.panel-work {
+  width: 100%;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+.header {
+
+	a {
+		font-weight: $bold;
+	}
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {
+	border: 0;
+
+	ul {
+		background:$black;
+		margin-top:0;
+	}
+
+	li {
+		position: relative;
+
+		a {
+			border-bottom: 0;
+
+			&:hover, &:focus {
+				color: $white;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+footer-section .social li {
+	width: auto;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.main-nav {
+	display: block;
+}
+
+
+/*********************
+RESPONSIVE NAV
+*********************/
+
+.hamburger {
+	display: none;
+}
+
+.responsive-nav {
+	display: none;
+}

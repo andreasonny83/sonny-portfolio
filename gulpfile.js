@@ -65,7 +65,10 @@ gulp.task('minify-html', function() {
 
 // copy fonts from a module outside of our project (like Bower)
 gulp.task('fonts', function() {
-  gulp.src('./fonts/**/*.{ttf,woff,eof,eot,svg}')
+  gulp.src([
+    './fonts/**/*.{ttf,woff,eof,eot,svg}',
+    './bower_components/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,eot,svg}',
+  ])
     .pipe($.changed('./_build/fonts'))
     .pipe(gulp.dest('./_build/fonts'));
 });
@@ -112,37 +115,27 @@ gulp.task('sass', function() {
     .pipe($.sass({
       style: 'expanded'
     }))
-    .on('error', $.notify.onError({
-      title: 'SASS Failed',
-      message: 'Error(s) occurred during compile!'
-    }))
+    .on('error', gutil.log)
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('styles'))
     .pipe(reload({
       stream: true
-    }))
-    .pipe($.notify({
-      message: 'Styles task complete'
     }));
 });
 
 // SASS Build task
 gulp.task('sass:build', function() {
-  var s = $.size();
-
   return gulp.src('styles/style.scss')
     .pipe($.sass({
       style: 'compact'
     }))
+    .on('error', gutil.log)
     .pipe($.autoprefixer('last 3 version'))
     .pipe($.uncss({
       html: ['./index.html', './views/**/*.html', './components/**/*.html'],
       ignore: [
         '.index',
-        '.slick',
-        /\.owl+/,
-        /\.owl-next/,
-        /\.owl-prev/
+        '.slick'
       ]
     }))
     .pipe($.minifyCss({
@@ -151,14 +144,7 @@ gulp.task('sass:build', function() {
       advanced: false
     }))
     .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest('_build/css'))
-    .pipe(s)
-    .pipe($.notify({
-      onLast: true,
-      message: function() {
-        return 'Total CSS size ' + s.prettySize;
-      }
-    }));
+    .pipe(gulp.dest('_build/css'));
 });
 
 // BUGFIX: warning: possible EventEmitter memory leak detected. 11 listeners added.
@@ -175,7 +161,6 @@ gulp.task('usemin', function() {
     .pipe($.usemin({
       css: [$.minifyCss(), 'concat'],
       libs: [$.uglify()],
-      nonangularlibs: [$.uglify()],
       angularlibs: [$.uglify()],
       appcomponents: [$.uglify()]
     }))
@@ -202,21 +187,6 @@ gulp.task('bs-reload', function() {
   browserSync.reload();
 });
 
-// calculate build folder size
-gulp.task('build:size', function() {
-  var s = $.size();
-
-  return gulp.src('./_build/**/*.*')
-    .pipe(s)
-    .pipe($.notify({
-      onLast: true,
-      message: function() {
-        return 'Total build size ' + s.prettySize;
-      }
-    }));
-});
-
-
 // default task to be run with `gulp` command
 // this default task will run BrowserSync & then use Gulp to watch files.
 // when a file is changed, an event is emitted to BrowserSync with the filepath.
@@ -231,6 +201,12 @@ gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function() {
   gulp.watch('styles/**/*.scss', ['sass', 'minify-css']);
 });
 
+/**
+ * Gulp Test
+ */
+gulp.task('test', function() {
+  console.log('nothing to test yet.');
+});
 
 /**
  * build task
@@ -243,7 +219,6 @@ gulp.task('build', function(callback) {
     'templates',
     'usemin',
     'fonts',
-    'build:size',
     callback);
 });
 
@@ -256,7 +231,6 @@ gulp.task('deploy', function(callback) {
     'templates',
     'usemin',
     'fonts',
-    'build:size',
     'send',
     callback);
 });

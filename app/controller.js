@@ -65,7 +65,7 @@
       $scope.success = false;
       $scope.error = false;
 
-      $scope.formData.recaptcha_response = $("#g-recaptcha-response").val();
+      $scope.formData.recaptcha_response = $( '#g-recaptcha-response' ).val();
 
       $http({
         method: 'POST',

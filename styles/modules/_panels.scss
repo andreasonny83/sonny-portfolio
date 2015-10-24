@@ -22,7 +22,7 @@
   min-height: 250px;
   border: none;
   position: relative;
-  user-select: none;
+  // user-select: none;
   text-decoration: none;
   color: #222;
   background-color: rgba(255,255,255,.3);
@@ -81,7 +81,6 @@
 
     .button {
       display: inline-block;
-      background-color: $color-secondary-2-0;
       color: $dark;
       padding: 10px;
       margin-right: 5px;
@@ -89,8 +88,8 @@
       text-decoration: none;
       transition: background-color .25s;
 
-      &:active, &:hover {
-        background-color: $color-secondary-2-2;
+      &:active {
+        background-color: $color-secondary-2-1;
       }
     }
   }

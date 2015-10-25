@@ -42,7 +42,7 @@ table{border-collapse:collapse;border-spacing:0}
 .cf:after,.cf:before{content:" ";display:table}
 .cf:after{clear:both}
 .nounderline{text-decoration:none!important}
-#inner-header .hamburger:focus,#inner-header .hamburger:hover,.h1 a,.h2 a,.h3 a,.h4 a,.h5 a,.main-nav li a,.panel,.responsive-wrapper a,footer-section .copy a,h1 a,h2 a,h3 a,h4 a,h5 a{text-decoration:none}
+.h1 a,.h2 a,.h3 a,.h4 a,.h5 a,.main-nav li a,.panel,.responsive-wrapper a,footer-section .copy a,h1 a,h2 a,h3 a,h4 a,h5 a{text-decoration:none}
 .text-left{text-align:left}
 .text-center{text-align:center}
 .text-right{text-align:right}
@@ -70,39 +70,51 @@ p{-ms-word-wrap:break-word;word-break:break-word;word-wrap:break-word;-webkit-hy
 @keyframes blink{0%,100%,35%{opacity:0}
 75%{opacity:1}
 }
+.container.ng-enter{animation:page .4s both ease-in}
+@keyframes page{0%{opacity:0;transform:translateX(-400px)}
+75%{opacity:.1}
+90%{opacity:.5}
+}
+.panel-skill.ng-enter,.panel-skill.ng-leave,.panel-skill.ng-move{transition:.5s linear all;transform:translateY(0)}
+.panel-skill.ng-move{opacity:0;transform:rotate3d(0,0,0,0deg)}
+.panel-skill.ng-move.ng-move-active{opacity:.8;transform:rotate3d(0,1,0,360deg)}
+.panel-skill.ng-enter{opacity:0;transform:translateY(-40px)}
+.panel-skill.ng-enter.ng-enter-active,.panel-skill.ng-leave{opacity:.8;transform:translateY(0)}
+.panel-skill.ng-leave.ng-leave-active{opacity:0;transform:translateY(-40px)}
 .panel-container{display:flex;flex-direction:row;flex-wrap:wrap;max-width:780px;margin:0 auto}
 .panel-container.skills{max-width:inherit}
-.panel{width:100%;margin:20px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;border-radius:3px;min-height:250px;border:none;position:relative;user-select:none;color:#222;background-color:rgba(255,255,255,.3);box-shadow:0 1px 2px rgba(0,0,0,.3);transition:width .25s cubic-bezier(.22,.61,.36,1),box-shadow .2s cubic-bezier(.42,0,.58,1),background-color .4s}
+.panel{width:100%;margin:20px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;border-radius:3px;min-height:250px;border:none;position:relative;color:#222;background-color:rgba(255,255,255,.5);box-shadow:0 1px 2px rgba(0,0,0,.3)}
 .panel:hover{background-color:#FFF;box-shadow:0 2px 2px rgba(0,0,0,.2),0 5px 8px rgba(0,0,0,.3)}
 .panel .panel-background{position:absolute;margin:0;width:100%;height:114px;line-height:100px;bottom:0;font-size:100px;text-align:right;color:rgba(0,0,0,.07);z-index:1}
 .panel .panel-background i{line-height:100px;margin-right:10px}
-.panel .panel-heading{background:0 0;border:none;height:40px}
-.panel .panel-body{font-size:24px;font-weight:500;margin-bottom:55px;text-align:center}
+.panel .panel-heading{margin-top:30px;background:0 0;border:none;height:40px}
+.panel .panel-body{width:100%;font-size:24px;font-weight:500;margin-bottom:55px;text-align:center}
 .panel .panel-footer{display:flex;flex-direction:row;align-items:center;justify-content:flex-end;width:100%;height:55px;margin:0;padding:0;border:none;position:absolute;bottom:0;left:0}
 .panel .panel-footer .button{display:inline-block;color:#222;padding:10px;margin-right:5px;border-radius:3px;text-decoration:none;transition:background-color .25s}
 .panel .panel-footer .button:active{background-color:#C9E953}
 .panel .more{font-size:16px;text-align:left}
-.panel .more .skills{list-style-type:none;column-count:4;-webkit-column-count:4}
+.panel .more .skills{margin:0;padding:0;list-style-type:none;column-count:2;-webkit-column-count:2;text-align:center}
 .panel .more.ng-hide-add,.panel .more.ng-hide-remove{transition:all linear .5s}
 .panel .more.ng-hide{opacity:0;height:0}
-.panel-skill{width:calc(50% - 40px);min-height:140px;height:140px}
-.panel-skill .panel-body{margin-bottom:0}
+.panel-home .panel-body{color:#586F00}
+.panel-skill{width:calc(50% - 40px);min-height:140px;height:140px;justify-content:space-between}
+.panel-skill .panel-heading p{margin:35px 0;font-size:21px}
+.panel-skill .panel-footer{position:initial;border-top:1px solid rgba(0,0,0,.1);background-color:rgba(0,0,0,.1);height:39px;font-size:14px}
+.panel-skill .panel-footer p{padding-right:15px}
 .panel-work{padding:10px}
 .panel-work .from,.panel-work .to{position:absolute;top:0;padding:10px;font-size:12px}
 .panel-work .from{left:0}
 .panel-work .to{right:0}
-.panel.ng-enter{transition:all 1s linear;opacity:0}
-.panel.ng-enter.ng-enter-active{opacity:1}
 .panel.active{background-color:#FFF;box-shadow:0 2px 10px rgba(0,0,0,.2),0 8px 10px rgba(0,0,0,.35)}
 #contact_form{margin-top:20px;width:100%;display:flex;flex-direction:column}
 #contact_form span{display:none}
 #contact_form label{display:block}
 #contact_form input,#contact_form textarea{padding:6px 10px;font-size:21px;line-height:28px;border:none;outline:0;margin-bottom:20px}
 #contact_form .g-recaptcha{margin:0 auto}
-#contact_form button{margin-top:20px;min-width:100px;max-width:300px;font-size:21px;background-color:#53BC15;color:#222;border:none;border-radius:2px;outline:0;box-shadow:0 5px 6px rgba(0,0,0,.5);transition:all .3s linear}
+#contact_form button{margin-top:20px;margin-left:auto;margin-right:auto;width:300px;font-size:21px;background-color:#53BC15;color:#222;border:none;border-radius:2px;outline:0;box-shadow:0 5px 6px rgba(0,0,0,.5);transition:all .3s linear}
 #contact_form button:hover{background-color:#7FD54B}
-#contact_form button[disabled]{background-color:#112F00;color:#444}
-.alert{color:#222;padding:6px 40px;margin:-15px 0 0;position:fixed;top:50%;font-size:18px;left:25%;height:30px;right:25%;line-height:30px;animation:alert 5s;animation-fill-mode:forwards}
+#contact_form button[disabled]{background-color:#112F00;color:#444;box-shadow:0 1px 6px #222}
+.alert{color:#222;padding:6px 40px;margin:-15px 0 0;position:fixed;top:50%;font-size:18px;left:25%;right:25%;line-height:30px;animation:alert 5s;animation-fill-mode:forwards}
 .alert.alert-danger{background-color:#bf5b5b}
 .alert.alert-success{background-color:#39A280}
 .alert.ng-hide{display:none}
@@ -134,6 +146,7 @@ body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;backgr
 .main-nav{border-bottom:0;margin:0;display:none}
 .main-nav li a{display:block;color:#fff;padding:.75em}
 #inner-header .hamburger{font-size:26px;line-height:50px}
+.hamburger{display:block}
 .responsive-wrapper{display:none}
 .responsive-wrapper ul{background-color:#222;list-style-type:none;margin:0;padding:0}
 .responsive-wrapper ul li:hover{background-color:#112F00}
@@ -141,23 +154,32 @@ body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;backgr
 .slider{margin-bottom:30px}
 .image-slider{max-height:400px}
 .image-slider img{width:100%}
+.filters{margin-top:50px;margin-bottom:50px;text-align:right;padding-right:20px}
+.filters label{display:inline-block;font-size:18px}
+.filters label+label{margin-top:20px}
+.filters input{padding:5px 10px}
 .container{margin:0 auto}
+.container p{padding-left:10px;padding-right:10px}
 .container.main{min-height:600px;color:#379003}
 .container.main a{color:#7D9E03}
 @media only screen and (min-width:481px){.h1,h1{font-size:36px;line-height:52px}
-.container{width:480px}
+.container{width:460px}
 .panel-skill{width:calc(33.33% - 40px)}
 footer-section .social li{width:25%}
 }
-@media only screen and (min-width:768px){body{font-family:"Open Sans",Helvetica,Arial,sans-serif}
+@media only screen and (min-width:768px){.nav ul,.panel .panel-heading{margin-top:0}
+body{font-family:"Open Sans",Helvetica,Arial,sans-serif}
 .h1,h1{font-size:48px;line-height:64px}
-.container{width:760px}
+.container{width:750px}
+.filters label+label{margin-top:0;margin-left:20px}
 .panel{width:calc(50% - 40px)}
 .panel-skill{width:calc(25% - 40px)}
 .panel-work{width:100%}
+.panel-work .more .skills{column-count:4;-webkit-column-count:4;text-align:left}
+#contact_form button{margin-left:0;margin-right:0}
 .header a{font-weight:700}
 .nav{border:0}
-.nav ul{background:#231f20;margin-top:0}
+.nav ul{background:#231f20}
 .nav li{position:relative}
 .nav li a{border-bottom:0}
 .nav li a:focus,.nav li a:hover{color:#fff;text-decoration:underline}
@@ -165,9 +187,9 @@ footer-section .social li{width:auto}
 .main-nav{display:block}
 .hamburger,.responsive-nav{display:none}
 }
-@media only screen and (min-width:1030px){.container{width:1040px;margin:0 auto}
-#inner-header{width:1000px}
+@media only screen and (min-width:1030px){#inner-header,.container{width:1000px}
+.container{margin:0 auto}
 }
-@media only screen and (min-width:1240px){.container{width:1240px}
+@media only screen and (min-width:1240px){.container{width:1220px}
 .panel-skill{width:calc(20% - 40px)}
 }

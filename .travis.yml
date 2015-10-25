@@ -19,4 +19,4 @@ before_script:
 script:
   - gulp test
 after_success:
-  gulp deploy --user $PROD_USERNAME --password $PROD_PASSWORD
+  gulp deploy --user $PROD_USERNAME --password $PROD_PASSWORD --analytics $ANALYTICS

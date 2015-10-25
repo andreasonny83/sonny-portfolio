@@ -22,11 +22,22 @@ LAYOUT & GRID STYLES
 *********************/
 
 .container {
-	width: 760px;
+	width: 750px;
+}
+
+.filters {
+	label + label {
+		margin-top: 0;
+		margin-left: 20px;
+	}
 }
 
 .panel {
 	width: calc( 50% - 40px);
+
+	.panel-heading {
+		margin-top: 0;
+	}
 }
 
 .panel-skill {
@@ -35,6 +46,19 @@ LAYOUT & GRID STYLES
 
 .panel-work {
   width: 100%;
+
+	.more .skills {
+		column-count: 4;
+		-webkit-column-count: 4;
+		text-align: left;
+	}
+}
+
+#contact_form {
+	button {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
 /*********************

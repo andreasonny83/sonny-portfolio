@@ -13,9 +13,10 @@
     .module('portfolio', [
       'ngRoute',
       'firebase',
-      'ngAnimate'
+      'ngAnimate',
+      'navFilters'
     ])
-    .config(config);
+    .config( config );
 
   // safe dependency injection
   // this prevents minification issues
@@ -69,7 +70,7 @@
 
 
   /**
-   * You can intercept any request or response inside authInterceptor
+   * Intercept any request or response inside authInterceptor
    * or handle what should happend on 40x, 50x errors
    *
    */
@@ -111,9 +112,9 @@
 
   run.$inject = ['$rootScope', '$location'];
 
-  function run($rootScope, $location) {
+  function run( $rootScope, $location ) {
 
-    // put here everything that you need to run on page load
+    // on page load
 
   }
 

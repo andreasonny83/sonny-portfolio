@@ -1,10 +1,31 @@
 <h2 class="text-center">My Skills</h2>
 
-<section class="panel-container skills" ng-controller="SkillsController as skillsCtrl">
+<div class="filters">
 
-      <div class="panel panel-skill" ng-repeat="skill in skillsCtrl.skills">
-        <div class="panel-heading">{{skill.title}}</div>
-        <div class="panel-body">{{skill.rank}}</div>
-      </div>
+  <label>Search: <input ng-model="searchText"></label>
+
+  <label>Order By:
+    <select ng-model="sortType">
+      <option value="order">Smart</option>
+      <option value="-age">Years of experience</option>
+      <option value="title">Name</option>
+    </select>
+  </label>
+
+</div>
+
+<section class="panel-container skills">
+
+  <div class="panel panel-skill" ng-repeat="skill in data.skills | orderBy: sortType | filter: searchText">
+    <div class="panel-heading">
+      <p>
+        {{skill.title}}
+      </p>
+    </div>
+    <div class="panel-footer">
+      <p>Years of experience: {{skill.age}}</p>
+      <p ng-show="debug">pos: {{skill.order}}</p>
+    </div>
+  </div>
 
 </section>

@@ -7,63 +7,59 @@
  */
 ;(function() {
 
-  var app = angular.module('portfolio');
-      app.controller('MainController', MainController);
+  var app = angular.module( 'portfolio' );
 
-  app.controller('WorkController', WorkController);
-  app.controller('WorkItemController', WorkItemController);
-  app.controller('SkillsController', SkillsController);
-  app.controller('ContactController', ContactController);
+  app.controller( 'MainController', MainController );
+  app.controller( 'WorkController', WorkController );
+  app.controller( 'ContactController', ContactController );
 
-  function MainController() {
+  function MainController( $scope, $firebaseObject, $routeParams ) {
+    $scope.sortType = 'order';
+    $scope.debug    = false;
 
-    var self = this;
+    // live database from Firebase
+    var ref = new Firebase( 'https://sonnyportfolio.firebaseio.com/' );
+    $scope.data = $firebaseObject( ref );
+
+    // activate debug mode
+    if ( $routeParams.debug === 'true' ) {
+      $scope.debug = true;
+    }
+
+    $scope.isVisible = function( tab ) {
+      var visible = true;
+
+      visible = tab.is_home === true ? false : visible;
+      visible = tab.hide === true ? false : visible;
+
+      return visible;
+    }
 
   }
 
-  function SkillsController( $scope, $element, $firebaseObject ) {
-
-    var self = this;
-
-    var ref = new Firebase( 'https://sonnyportfolio.firebaseio.com/skills' );
-    this.skills = $firebaseObject( ref );
-
-  }
-
-  function WorkController( $scope, $element, $firebaseObject ) {
-
-    var self = this;
-
-    var ref = new Firebase( 'https://sonnyportfolio.firebaseio.com/works' );
-    this.works = $firebaseObject( ref );
-
-    this.readMore = function($event, work) {
-
+  function WorkController( $scope ) {
+    $scope.readMore = function( $event, work ) {
       work.readmore = ! work.readmore;
 
       if ( work.readmore ) {
-        $( $event.target ).closest( '.panel' ).addClass('active');
+        $( $event.target ).closest( '.panel' ).addClass( 'active' );
+        $( $event.target ).html( 'Close' );
       }
       else {
-        $( $event.target ).closest( '.panel' ).removeClass('active');
+        $( $event.target ).closest( '.panel' ).removeClass( 'active' );
+        $( $event.target ).html( 'Read More' );
       }
     }
 
   }
 
-  function WorkItemController() {
-
-    this.readmore = true;
-
-  }
-
-  function ContactController($scope, $http) {
+  function ContactController( $scope, $http ) {
     $scope.success = false;
-    $scope.error = false;
+    $scope.error   = false;
 
     $scope.send = function () {
       $scope.success = false;
-      $scope.error = false;
+      $scope.error   = false;
 
       $scope.formData.recaptcha_response = $( '#g-recaptcha-response' ).val();
 
@@ -73,7 +69,7 @@
         data: $.param($scope.formData),
         headers: { "Content-type": "application/x-www-form-urlencoded; charset=utf-8" },
       }).
-      success(function (data) {
+      success( function ( data ) {
         if ( data.success ) {
         	$scope.success = true;
         }
@@ -81,10 +77,11 @@
           $scope.error = true;
         }
       }).
-      error(function (data) {
+      error( function ( data ) {
       	$scope.error = true;
       });
     }
+
   }
 
 })();

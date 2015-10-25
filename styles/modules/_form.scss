@@ -30,8 +30,9 @@
 
   button {
     margin-top: 20px;
-    min-width: 100px;
-    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
     font-size: 21px;
     background-color: $color-primary-2;
     color: #222;
@@ -47,6 +48,7 @@
     &[disabled] {
       background-color: $color-primary-4;
       color: #444;
+      box-shadow: 0 1px 6px #222;
     }
   }
 }
@@ -59,7 +61,6 @@
   top: 50%;
   font-size: 18px;
   left: 25%;
-  height: 30px;
   right: 25%;
   margin-top: -15px;
   line-height: 30px;

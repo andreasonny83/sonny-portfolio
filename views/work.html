@@ -2,7 +2,7 @@
 
 <section class="panel-container" ng-controller="WorkController as workCtrl">
 
-      <div class="panel panel-work" ng-repeat="work in workCtrl.works">
+      <div class="panel panel-work" ng-repeat="work in data.works | orderBy:'-from'">
         <span class="from">From: {{work.from}}</span>
         <span class="to">To: {{work.to}}</span>
         <div class="panel-heading">{{work.role}}</div>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="panel-footer">
-          <a href="" class="button readmore" ng-click="workCtrl.readMore($event, work)">read more</a>
+          <a href="" class="button readmore" ng-click="readMore($event, work)">Read More</a>
         </div>
       </div>
 

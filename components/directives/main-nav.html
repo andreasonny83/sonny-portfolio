@@ -1,28 +1,24 @@
 <!-- Main navigation -->
 <header class="header">
-    <div id="inner-header" class="wrap container cf">
+  <div id="inner-header" class="wrap container cf">
 
-        <responsive-nav></responsive-nav>
+    <responsive-nav></responsive-nav>
 
-        <!-- nav -->
-        <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
-            <ul class="menu cf">
-                <li><a href="#/">Home</a></li>
-                <li><a href="#/about">About Me</a></li>
-                <li><a href="#/skills">Skills</a></li>
-                <li><a href="#/work-experience">Work Experience</a></li>
-                <li><a href="#/hire-me">Hire Me</a></li>
-            </ul>
-        </nav>
-    </div>
+    <!-- nav -->
+    <nav role="navigation" class="main-nav text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <ul class="menu cf">
+        <li ng-hide="tab.hide" ng-repeat="tab in data.tabs | orderBy: 'pos'">
+          <a href="{{tab.link}}">{{tab.title}}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <div class="responsive-wrapper">
-    <ul class="cf responsive-nav option-set">
-      <li><a class="menu-item" href="#/">Home</a></li>
-      <li><a class="menu-item" href="#/about">About Me</a></li>
-      <li><a class="menu-item" href="#/skills">Skills</a></li>
-      <li><a class="menu-item" href="#/work-experience">Work Experience</a></li>
-      <li><a class="menu-item" href="#/hire-me">Hire Me</a></li>
-    </ul>
+  <ul class="cf responsive-nav option-set">
+    <li ng-hide="tab.hide" ng-repeat="tab in data.tabs | orderBy: 'pos'">
+      <a href="{{tab.link}}">{{tab.title}}</a>
+    </li>
+  </ul>
 </div>

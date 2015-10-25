@@ -1,45 +1,12 @@
 <section class="panel-container">
 
-      <a href="/#/about" class="panel panel-home">
+      <a href="{{tab.link}}" class="panel panel-home" ng-repeat="tab in data.tabs | orderBy:'pos'" ng-show="isVisible(tab)">
         <div class="panel-background">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-{{tab.icon}}"></i>
         </div>
         <div class="panel-heading"></div>
         <div class="panel-body">
-          About Me
-        </div>
-        <div class="panel-footer"></div>
-      </a>
-
-      <a href="/#/skills" class="panel panel-home">
-        <div class="panel-background">
-          <i class="fa fa-cutlery"></i>
-        </div>
-        <div class="panel-heading"></div>
-        <div class="panel-body">
-          Skills
-        </div>
-        <div class="panel-footer"></div>
-      </a>
-
-      <a href="/#/work-experience" class="panel panel-home">
-        <div class="panel-background">
-          <i class="fa fa-briefcase"></i>
-        </div>
-        <div class="panel-heading"></div>
-        <div class="panel-body">
-          Work Experience
-        </div>
-        <div class="panel-footer"></div>
-      </a>
-
-      <a href="/#/hire-me" class="panel panel-home">
-        <div class="panel-background">
-          <i class="fa fa-shopping-cart"></i>
-        </div>
-        <div class="panel-heading"></div>
-        <div class="panel-body">
-          Hire Me
+          <p>{{tab.title}}</p>
         </div>
         <div class="panel-footer"></div>
       </a>

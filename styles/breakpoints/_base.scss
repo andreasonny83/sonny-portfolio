@@ -109,11 +109,10 @@ RESPONSIVE NAV
 #inner-header .hamburger {
 	font-size: 26px;
 	line-height: 50px;
+}
 
-	&:hover,
-	&:focus {
-		text-decoration: none;
-	}
+.hamburger {
+	display: block;
 }
 
 .responsive-wrapper {
@@ -159,11 +158,40 @@ SLIDER
 }
 
 /*********************
+FILTERS
+*********************/
+
+.filters {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: right;
+	padding-right: 20px;
+
+	label {
+		display: inline-block;
+		font-size: 18px;
+	}
+
+	label + label {
+		margin-top: 20px;
+	}
+
+	input {
+		padding: 5px 10px;
+	}
+}
+
+/*********************
 CONTAINER
 *********************/
 
 .container {
 	margin: 0 auto;
+
+	p {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 }
 
 .container.main {

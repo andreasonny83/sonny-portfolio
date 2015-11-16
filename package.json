@@ -2,7 +2,7 @@
   "name": "sonny-portfolio",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "Andrea Zornada web portfolio",
+  "description": "@andreasonny83 Web portfolio",
   "main": "app/app.js",
   "devDependencies": {
     "browser-sync": "^1.9.1",

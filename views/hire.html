@@ -4,8 +4,6 @@
 
 <section class="panel-container" ng-controller="ContactController">
 
-  <p>Visit my <a href="https://uk.linkedin.com/in/andreazornada">LinkedIn</a> page or send me a message using the following form:</p>
-
   <div class="alert alert-danger" ng-show="error">
     <strong>Error!</strong> An error occured while trying to send message.
   </div>
@@ -17,20 +15,23 @@
     <div class="form-group" ng-class="{error: contactForm.name.$invalid}"></div>
 
     <label for="form_name">Full Name</label>
-    <input id="form_name" class="form-control" type="text" name="name" ng-model="formData.name" required="required" placeholder="Your name">
+    <input id="form_name" class="form-control" type="text" name="name" ng-model="formData.name" required="required"
+      placeholder="Your name">
 
     <span class="help-block" ng-show="contactForm.name.$error.required">Required</span>
     <div class="form-group" ng-class="{error: contactForm.email.$invalid}"></div>
 
     <label for="form_email">Email</label>
-    <input id="form_email" class="form-control" type="email" name="email" ng-model="formData.email" required="required" placeholder="Your email address">
+    <input id="form_email" class="form-control" type="email" name="email" ng-model="formData.email" required="required"
+      placeholder="Your email address">
     <span class="help-block" ng-show="contactForm.email.$error.required">Required</span>
     <span class="help-block" ng-show="contactForm.email.$error.email">Invalid email address</span>
 
     <div class="form-group" ng-class="{error: contactForm.message.$invalid}"></div>
 
     <label for="form_message">Message</label>
-    <textarea id="form_message" class="form-control" rows="5" name="message" ng-model="formData.body" required="required" placeholder="Your messsage"></textarea>
+    <textarea id="form_message" class="form-control" rows="5" name="message" ng-model="formData.body" required="required"
+      placeholder="Your messsage"></textarea>
     <span class="help-inline" ng-show="contactForm.message.$error.required">Required</span>
 
     <div class="g-recaptcha" data-sitekey="6LfZOA8TAAAAAFR4oVVwpXf3v72ihH9cqrS0WMbf"></div>
